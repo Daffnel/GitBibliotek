@@ -38,10 +38,17 @@ public class Main {
 
                 Book newBook;
                 if (bookType == 1) {
-                    newBook = new NonFictionBook(author, title, pages);
+                    System.out.print("Ange ämnet för boken: ");
+                    String subject = scanner.nextLine();
+                    newBook = new NonFictionBook(author, title, pages, subject);
+                } else if (bookType == 2) {
+                    System.out.print("Ange typ av litteratur: ");
+                    String typeOf = scanner.nextLine();
+                    newBook = new FictionBook(author, title, pages, typeOf);
                 } else {
-                    newBook = new FictionBook(author, title, pages);
+                    newBook = new Book(author, title, pages);
                 }
+
 
                 bibliotek.addBook(newBook);
                 System.out.println("Boken har lagts till.\n");
