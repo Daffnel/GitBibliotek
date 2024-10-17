@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class LibraryApp {
+public class Main {
 
     public static void main(String[] args) {
         Library library = new Library();  // Skapa ett nytt bibliotek
@@ -27,5 +27,22 @@ public class LibraryApp {
                 int pages = scanner.nextInt();  // Läs antal sidor
                 scanner.nextLine();
 
+                // Skapa och lägg till en bok
+                library.addBook(new Book(author, title, pages));
+                System.out.println("Boken har lagts till.\n");
+
+            } else if (choice == 2) {
+                // Visa alla böcker
+                library.showBooks();
+
+            } else if (choice == 3) {
+                System.out.println("Avslutar programmet.");
+                break;
+
+            } else {
+                System.out.println("Ogiltigt val, försök igen.\n");
+            }
+        }
+        scanner.close();
     }
 }
