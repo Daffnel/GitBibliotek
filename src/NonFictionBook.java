@@ -1,7 +1,7 @@
 public class NonFictionBook extends Book{
     private String subject;
 
-    public NonFictionBook(String author, String title, int pages, String subject) {
+    public NonFictionBook(String author, String title, int pages) {
         super(author, title, pages);
         this.subject = subject;
     }

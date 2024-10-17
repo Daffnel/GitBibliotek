@@ -7,15 +7,10 @@ public class Main {
         Library bibliotek = new Library();
         Scanner scanner = new Scanner(System.in);
 
-        Book bok = new Book("Kalle Hansson", "Gröna människor", 35);
-        Book bok1 = new Book("Kalle Bengtsson", "Blåa människor", 35);
-        Book bok2 = new Book("Bengt Karlsson", "Gula människor", 100);
-        Book bok3 = new Book("Bengt Carlsson", "Röda människor", 70);
-
-        bibliotek.addBook(bok);
-        bibliotek.addBook(bok1);
-        bibliotek.addBook(bok2);
-        bibliotek.addBook(bok3);
+        bibliotek.addBook(new Book("Kalle Hansson", "Gröna människor", 35));
+        bibliotek.addBook(new Book("Kalle Bengtsson", "Blåa människor", 35));
+        bibliotek.addBook(new Book("Bengt Karlsson", "Gula människor", 100));
+        bibliotek.addBook(new Book("Bengt Carlsson", "Röda människor", 70));
 
         while (true) {
             System.out.println("\n1. Lägg till en bok");
@@ -27,6 +22,10 @@ public class Main {
             scanner.nextLine();
 
             if (choice == 1) {
+                System.out.print("Är det en (1) facklitterär eller (2) skönlitterär bok? ");
+                int bookType = scanner.nextInt();
+                scanner.nextLine();
+
                 System.out.print("Ange författare: ");
                 String author = scanner.nextLine();
 
@@ -37,7 +36,13 @@ public class Main {
                 int pages = scanner.nextInt();
                 scanner.nextLine();
 
-                Book newBook = new Book(author, title, pages);
+                Book newBook;
+                if (bookType == 1) {
+                    newBook = new NonFictionBook(author, title, pages);
+                } else {
+                    newBook = new FictionBook(author, title, pages);
+                }
+
                 bibliotek.addBook(newBook);
                 System.out.println("Boken har lagts till.\n");
 
