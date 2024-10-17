@@ -4,9 +4,8 @@ public class Library {
 
     private ArrayList<Book> bokLista = new ArrayList<>();
 
-    public Library(String title, String author; int pages){
+   public Library(){}
 
-    }
 
     public void addBook(Book book){
 
@@ -16,17 +15,10 @@ public class Library {
 
     public void printAllBooks(){
 
-        for(int i = 0; i < bokLista.size();i++){
-            System.out.println(bokLista);
+        for (Book book : bokLista) {
+            System.out.println(book);
         }
 
     }
 
-    @Override
-    public String toString() {
-        return "Library{" +
-                "bokLista=" + bokLista +
-                ", pages=" + pages +
-                '}';
-    }
 }
